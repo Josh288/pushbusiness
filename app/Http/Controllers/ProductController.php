@@ -40,29 +40,26 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        request()->validate(Product::$rules);
+{
+    $request->validate(Product::$rules);
 
-        if($request->hasFile('imgProduct') )
-        {
-            $file = $request->file('imgProduct');
+    $user = auth()->user(); // Obtén el usuario autenticado
 
-            $destinationPath= 'images/imgProduct/';
-            $filename= time() . '-' . $file->getClientOriginalName();
-            $uploadsuccess = $request->file('imgProduct')->move($destinationPath, $filename);
-            //$newPost->imgProduct= $destinationPath . $filename;
+    $product = new Product([
+        'name' => $request->input('name'),
+        'description' => $request->input('description'),
+        'price' => $request->input('price'),
+        'size' => $request->input('size'),
+        'color' => $request->input('color'),
+        'available' => $request->input('available'),
+        'ammount' => $request->input('ammount'),
+        'status' => $request->input('status'),
+    ]);
 
-        }
+    $user->products()->save($product); // Asocia el producto con el usuario
 
-        $product = Product::create($request->all());
-
-
-
-
-
-        return redirect()->route('product.index')
-            ->with('Éxito', 'Producto agregado');
-    }
+    return redirect()->route('product.index')->with('success', 'Producto agregado');
+}
 
     /**
      * Display the specified resource.
