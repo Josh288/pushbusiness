@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Sector;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
@@ -22,24 +23,13 @@ class CreateProduct extends Component
     public $selectedAvilable;
     public $amount;
     public $photo;
+    public $newphoto;
     public $selectedStatus;
     public $selectedSector;
 
     public function save()
     {
-        /*
-        if(!is_null($this->photo))
-        {
-            $file = $this->photo;
-            $image = $this->photo;
 
-            $destinationPath= 'images/imgProduct/';
-            $filename= time() . '-' . $file->getClientOriginalName();
-            $uploadsuccess = $image->move($destinationPath, $filename);
-            //$newPost->imgProduct= $destinationPath . $filename;
-
-        }
-        */
 
         $product = Product::create([
             'name' => $this->name,
@@ -64,7 +54,7 @@ class CreateProduct extends Component
         ]);
 
         return redirect()->route('product.index')
-        ->with('success', 'Registro Completado con exito, se agrego nueva ENTRADA');
+            ->with('success', 'Registro Completado con exito, se agrego nueva ENTRADA');
     }
 
     public function render()

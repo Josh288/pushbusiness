@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SectorController;
@@ -31,16 +32,14 @@ Route::get('/', function () {
 
 //Auth::routes();
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware(['auth', 'verified'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::middleware('auth')->group(function () {
 
     Route::get('/product', [ProductController::class, 'index'])->name('product.index');
     Route::get('/product/create', [ProductController::class, 'create'])->name('product/create');
-    Route::get('/product/store',  [ProductController::class, 'store'])->name('product/store');
+    Route::post('/product/store',  [ProductController::class, 'store'])->name('product/store');
     Route::delete('/product/destroy/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
     Route::get('/product/show/{id}', [ProductController::class, 'show'])->name('product.show');
     Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
@@ -70,6 +69,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/home/post', [App\Http\Controllers\HomeController::class, 'show'])->name('show-post');
 
 
 
