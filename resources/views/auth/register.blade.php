@@ -103,7 +103,7 @@
                     <!-- Confirmar contraseña -->
                     <div class="col-md-6 mb-4">
                       <div class="form-outline" >
-                        <input type="password" id="form3Example2" class="form-control" name="password_confirmation" required autocomplete="new-password"  />
+                        <input type="password" id="form3Example2" class="form-control" min="8" max="35" name="password_confirmation" required autocomplete="new-password"  />
                         @error('age')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -116,15 +116,13 @@
 
                   <!-- Edad -->
                 <div class="row">
-                    <div class="form-outline mb-4 ">
-                        <input type="number" id="form3Example1" class="form-control  min="18" max="99" name="age"/>
+                    <div class="form-outline" mb-4>
+                        <input type="number" id="form3Example1" class="form-control"  min="18" max="99" name="age"/>
                         <label class="form-label" for="form3Example1">{{ __('Edad') }}</</label>
                      </div>
                     </div>
 
-                                    {{--  <input type="radio" name="usuario" value="1">
-            <input type="radio" name="usuario" value="2"> --}}
-
+                                    
 
 
                 <!-- Boton de inicio -->
