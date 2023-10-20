@@ -8,8 +8,39 @@
     <!-- Section: Design Block -->
 <section class="text-center text-lg-start">
     <style>
+
+     body
+     {
+        font-family: "Nunito Sans", sans-serif;
+     }
+
+      .form-outline
+      {
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 22px;
+        color: rgb(255, 255, 255);
+      }
+
+      .fw-bold
+      {
+        color: rgb(255, 255, 255);
+      }
+      .btn
+      {
+        font-size: 22px;
+        color: rgb(255, 255, 255);
+      }
+
+      .btn-primary
+      {
+        background-color:  #006F76;
+        border-block-color: #006F76;
+        border-block-end-color: #006F76;
+        border-block-start-color: #006F76
+      }
+
       .cascading-right {
-        margin-right: -50px;
+        margin-right: -60px;
       }
 
       @media (max-width: 991.98px) {
@@ -20,35 +51,35 @@
     </style>
 
     <!-- Jumbotron -->
-    <div class="container py-4">
+    <div class="container py-6">
       <div class="row g-0 align-items-center">
-        <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="col-lg-8 mb-2 mb-lg-0">
           <div class="card cascading-right" style="
-              background: hsla(0, 0%, 100%, 0.55);
+              background: hsla(180, 69%, 29%, 0.767);
               backdrop-filter: blur(30px);
               ">
               <form method="POST" action="{{ route('login') }}">
                 @csrf
 
-            <div class="card-body p-5 shadow-5 text-center">
-              <h2 class="fw-bold mb-5">Iniciar Sesión</h2>
+            <div class="card-body p-6 shadow-5 text-center">
+              <h2 class="fw-bold mb-3">Iniciar Sesión</h2>
               <form>
                 <!--Correo del usuario -->
                 <div class="row">
-                  <div class="form-outline mb-4">
-                      <input type="email" id="form3Example1" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
+                  <div class="form-outline mb-3">
+                      <input type="email" id="form3Example1" class="form-control  @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus />
                       <label class="form-label" for="form3Example1">{{ __('Correo') }}</</label>
                     </div>
                   </div>
 
                 <!-- Correo del usuario -->
-                <div class="form-outline mb-4">
+                <div class="form-outline mb-3">
                   <input type="password" id="form3Example4" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                  <label class="form-label" for="form3Example4">{{ __('Contraseña') }}</</label>
+                  <label class="form-label" for="form3Example4">{{ __('Contraseña') }} </</label>
                 </div>
 
                 <!-- Checkbox -->
-                <div class="form-outline mb-4">
+                <div class="form-outline mb-3">
                   @if (Route::has('password.request'))
                   <a class="btn btn-link-dark form-control" href="{{ route('password.request') }}">
                       {{ __('¿Olvidaste tu contraseña?') }}
@@ -57,14 +88,14 @@
 
                 </div>
 
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4">
+                <!-- Boton de inicio -->
+                <button type="submit" class="btn btn-primary btn-ligth btn-block mb-4">
                     {{ __('Iniciar sesión') }}
                 </button>
 
-                <!-- Register buttons -->
-                <div class="form-outline mb-4">
-                    <a class="btn btn-link-dark form-control" href="{{ route('register') }}">
+                <!-- Dirección de registro-->
+                <div class="form-outline mb-3">
+                    <a class="btn form-control" href="{{ route('register') }}">
                         {{ __('¿Primera vez? Registrate aquí') }}
                     </a>
                 </div>
@@ -72,13 +103,12 @@
             </div>
           </div>
         </div>
-
-        <div class="col-lg-6 mb-5 mb-lg-0">
-          <img src="../assets/img/loginlogo.png" class="w-100 rounded-4 shadow-4"
+        <div class="col-lg-4 mb-2 mb-lg-0">
+          <img src="../assets/img/log.png" class="w-100 rounded-4 shadow-4 "
             alt="" />
         </div>
       </div>
     </div>
     <!-- Jumbotron -->
   </section>
-  <!-- Section: Design Block -->
+
