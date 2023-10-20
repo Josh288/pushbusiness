@@ -25,12 +25,12 @@
 </head>
 
 <body>
-    <!-- Page Preloder -->
+    <!-- Carga de antes -->
     <div id="preloder">
         <div class="loader"></div>
     </div>
 
-    <!-- Offcanvas Menu Begin -->
+    <!-- Menu del login responsive -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div id="mobile-menu-wrap"></div>
