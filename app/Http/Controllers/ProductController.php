@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Entrance;
 use App\Models\Product;
+use App\Models\Sector;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class ProductController
@@ -19,7 +23,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('product/index', compact ('products'));
+        $sectors = Sector::all();
+        return view('product/index', compact ('products', 'sectors'));
     }
 
     /**
@@ -34,34 +39,6 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-{
-    $request->validate(Product::$rules);
-
-    $user = auth()->user(); // Obtén el usuario autenticado
-
-    $product = new Product([
-        'name' => $request->input('name'),
-        'description' => $request->input('description'),
-        'price' => $request->input('price'),
-        'size' => $request->input('size'),
-        'color' => $request->input('color'),
-        'available' => $request->input('available'),
-        'ammount' => $request->input('ammount'),
-        'status' => $request->input('status'),
-    ]);
-
-    $user->products()->save($product); // Asocia el producto con el usuario
-
-    return redirect()->route('product.index')->with('success', 'Producto agregado');
-}
-
-    /**
      * Display the specified resource.
      *
      * @param  int $id
@@ -70,8 +47,11 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-
-        return view('product/show', compact('product'));
+        $sector = Sector::find($product->id_sector);
+        return response()->json([
+            'product' => $product,
+            'sector' => $sector,
+        ]);
     }
 
     /**
@@ -83,8 +63,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-
-        return view('product.edit', compact('product'));
+        return response()->json([
+            'product' => $product,
+        ]);
     }
 
     /**
@@ -94,18 +75,51 @@ class ProductController extends Controller
      * @param  Product $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $product)
+    public function update(Request $request)
     {
+        $id = $request->input("pro-id");
+        $quanty = $request->input("quanty");
+        $product = Product::find($id);
 
-        request()->validate(Product::$rules);
-        $test = request()->except('_token','_method');
+        if ($quanty < $request->input("amount-product1")){
+            $product->name = $request->input("name-product1");
+            $product->description = $request->input("des-product1");
+            $product->price = $request->input("price-product1");
+            $product->size = $request->input("tall-product1");
+            $product->color = $request->input("color-product1");
+            $product->avilable = $request->input("avilable-product1");
+            $product->ammount = $request->input("amount-product1");
+            $product->status = $request->input("status-product1");
+            $product->id_sector = $request->input("sector-product1");
 
-        Product::where('id',$product)->update($test);
+            $product->save();
 
+            $entrance = Entrance::create([
+                'input' => $product->name,
+                'description' => 'Entrada de Producto',
+                'date_create' => Carbon::parse($product['created_at'])->format('Y-m-d'),
+                'identifer' => $product->id,
+                'id_user' => Auth::user()->id,
+            ]);
+            return redirect()->back()->with('success', 'El registro se ha actualizado con exito, se agrego nueva ENTRADA y REGISTRO GENERAL');
+        }
 
+        else{
+            $product->name = $request->input("name-product1");
+            $product->description = $request->input("des-product1");
+            $product->price = $request->input("price-product1");
+            $product->size = $request->input("tall-product1");
+            $product->color = $request->input("color-product1");
+            $product->avilable = $request->input("avilable-product1");
+            $product->ammount = $request->input("amount-product1");
+            $product->photo = $request->input("photo-product1");
+            $product->status = $request->input("status-product1");
+            $product->id_sector = $request->input("sector-product1");
 
-        return redirect()->route('product.index')
-            ->with('Éxito', 'Información actualizada');
+            $product->save();
+
+            return redirect()->back()->with('success', 'El registro se ha actualizado con exito');
+        }
     }
 
     /**
