@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-@section('template_title')
-    {{ $product->name ?? "{{ __('Show') Product" }}
-@endsection
-
 @section('content')
     <section class="content container-fluid">
         <div class="row">

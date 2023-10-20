@@ -2,68 +2,25 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Ulluminate\Datebase\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-/**
- * Class Product
- *
- * @property $id
- * @property $name
- * @property $description
- * @property $price
- * @property $size
- * @property $color
- * @property $avilable
- * @property $ammount
- * @property $photo
- * @property $status
- * @property $id_user
- * @property $id_sector
- * @property $created_at
- * @property $updated_at
- *
- * @property Catalog[] $catalogs
- * @property Lending[] $lendings
- * @property Purchase[] $purchases
- * @property Sale[] $sales
- * @property Sector $sector
- * @property User $user
- * @package App
- * @mixin \Illuminate\Database\Eloquent\Builder
- */
 class Product extends Model
 {
+    use HasFactory;
 
-    static $rules = [
-		'name' => 'required',
-		'description' => 'required',
-		'price' => 'required',
-        'size'=> 'required',
-        'color'=> 'required',
-		'avilable' => 'required',
-        'ammount' => 'required',
-		'status' => 'required',
-		'id_user' => 'required',
-		'id_sector' => 'required',
-    ];
-
-    protected $perPage = 20;
-
-    /**
-     * Attributes that should be mass-assignable.
-     *
-     * @var array
-     */
-    protected $fillable = ['name','description','price','size','color','avilable','ammount',
-                            'photo','status','id_user','id_sector'];
+    protected $guarded = [];
 
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function catalogs()
+    public function catalogs():BelongsToMany
     {
-        return $this->hasMany('App\Models\Catalog', 'id_product', 'id');
+        return $this->BelongsToMany(Catalog_model::class, 'id_product', 'id');
     }
 
     /**
