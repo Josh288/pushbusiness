@@ -15,7 +15,25 @@ class Product extends Model
 
     protected $guarded = [];
 
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'size',
+        'color',
+        'avilable',
+        'ammount',
+        'photo',
+        'photoname',
+        'status',
+        'id_user',
+        'id_sector',
+    ];
 
+    public function url()
+    {
+        return (string) 'http://' . Storage::disk('product')->url($this->photo);
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

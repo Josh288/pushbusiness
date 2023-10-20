@@ -29,7 +29,9 @@ class CreateProduct extends Component
 
     public function save()
     {
-
+        $name = Auth::user()->id . date("Y-m-d") . '-' . date("h-i-sa") . '.' . $this->photo->extension();
+        $this->newphoto = $name;
+        $this->photo->storeAs('product', $name);
 
         $product = Product::create([
             'name' => $this->name,
@@ -39,7 +41,8 @@ class CreateProduct extends Component
             'color' => $this->color,
             'avilable' => $this->selectedAvilable,
             'ammount' => $this->amount,
-            'photo' => $this->photo,
+            'photo' => $this->newphoto,
+            'photoname' => $this->newphoto,
             'status' => $this->selectedStatus,
             'id_user' => Auth()->user()->id,
             'id_sector' => $this->selectedSector,
