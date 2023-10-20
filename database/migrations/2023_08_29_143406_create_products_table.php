@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("color")->nullable();
             $table->string("avilable");
             $table->integer("ammount")->nullable();
+            $table->string('photoname');
             $table->string("photo")->nullable();
             $table->string("status");
 

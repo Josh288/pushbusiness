@@ -13,6 +13,12 @@
     z-index: 99;
 }
 
+.show-post{
+    display: flex;
+    margin: 1%;
+    flex-wrap: wrap;
+}
+
 
 /*** Spinner ***/
 #spinner {

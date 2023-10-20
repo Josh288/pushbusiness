@@ -17,7 +17,7 @@
                         </span>
 
                         <div class="float-right">
-                            <button type="button" class="btn btn-primary btn-sm float-right"  data-placement="left" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <button type="button" class="btn btn-primary btn-sm float-right"  data-placement="left" data-bs-toggle="modal" data-bs-target="#createproduct">
                                 {{ __('Agregar producto') }}
                             </button>
                         </div>
@@ -70,6 +70,100 @@
         </div>
     </div>
 
+    <div class="modal fade" id="createproduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Producto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="{{ route('product/store') }}" method="POST">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="box-body row">
+                                <div class="form-group mt-3 mb-3">
+                                    <label for="name-product" class="form-label">Nombre del Producto</label>
+                                    <input type="text" class="form-control" name="name-product" id="name-product">
+                                </div>
+
+
+                                <div class="form-group  mt-3 mb-3">
+                                    <label for="des-product" class="form-label">Descripcion</label>
+                                    <textarea name="des-product" id="des-product" cols="30" rows="5" class="form-control"></textarea>
+                                </div>
+
+
+                                <div class="form-group mt-3 mb-3">
+                                    <label for="price-product" class="form-label">Precio</label>
+                                    <input type="number" class="form-control" name="price-product" id="price-product">
+                                </div>
+
+
+                                <div class="form-group mt-3 mb-3">
+                                    <label for="tall-product">Talla</label>
+                                    <input type="text" class="form-control" name="tall-product" id="tall-product">
+                                </div>
+
+
+                                <div class="form-group mt-3 mb-3">
+                                    <label for="color-product" class="form-label">Color</label>
+                                    <input type="text" class="form-control" name="color-product" id="color-product">
+                                </div>
+
+
+                                <div class="form-group mt-3 mb-3">
+                                    <label for="avilable-product">Disponibilidad</label>
+                                    <select name="avilable-product" id="avilable-product" class="form-select">
+                                        <option value="">==Opciones==</option>
+                                        <option value="Disponible">Disponible</option>
+                                        <option value="No Disponible">No Disponible</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group mt-3 mb-3">
+                                    <label for="ammount-product">Cantidad</label>
+                                    <input type="number" name="ammount-product" id="ammount-product" class="form-control">
+                                </div>
+
+
+                                <div class="form-group mt-3 mb-3">
+                                    <label for="formFile" class="form-label">Imagen del producto</label>
+                                    <input class="form-control" type="file" id="formFile" name="formFile">
+                                </div>
+
+
+                                <div class="form-group mt-3 mb-3">
+                                    <label for="status-product">Estado</label>
+                                    <select name="status-product" id="status-product" class="form-select">
+                                        <option value="">==Opciones==</option>
+                                        <option value="Usado">Usado</option>
+                                        <option value="Nuevo">Nuevo</option>
+                                        <option value="SemiNuevo">SemiNuevo</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group mt-3 mb-3">
+                                    <label for="sector-product">Sector</label>
+                                    <select name="sector-product" id="sector-product" class="form-select">
+                                        <option value="">==Opciones==</option>
+                                        @foreach ($sectors as $sector)
+                                            <option value="{{$sector->id}}">{{$sector->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="submit" class="btn btn-info">{{ __('Guardar') }}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -302,6 +396,15 @@
             });
         });
     });
+
+    document.querySelectorAll('.btncreate').forEach(function(button) {
+        button.addEventListener('click', function() {
+            // Acción que deseas realizar al hacer clic en el botón
+            var product_id = $(this).val();
+            $('#createproduct').modal('show');
+        });
+    });
+
 </script>
 
 
