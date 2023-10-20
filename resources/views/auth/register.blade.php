@@ -26,12 +26,6 @@
                           </div>
 
 
-
-
-
-
-
-
         {{-- }} Name --}}
         <div>
             <x-input-label for="name"
@@ -78,7 +72,7 @@
                         name="age" />
                 </div>
 
-            
+
 
                 {{--  <input type="radio" name="usuario" value="1">
             <input type="radio" name="usuario" value="2"> --}}
@@ -112,3 +106,4 @@
 
 
         </div>
+
