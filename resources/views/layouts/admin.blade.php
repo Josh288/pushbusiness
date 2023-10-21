@@ -3,7 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DASHMIN - Bootstrap Admin Template</title>
+    <title>
+        Push Business Panel
+    </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -71,7 +73,7 @@
     <script>
         new DataTable('#animal');
     </script>
-    
+
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     @include('components.alerts')
