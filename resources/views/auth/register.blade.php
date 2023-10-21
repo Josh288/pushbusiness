@@ -34,10 +34,6 @@
                 border-block-start-color: #006F76
             }
 
-            .cascading-right {
-                margin-right: -60px;
-            }
-
             @media (max-width: 991.98px) {
                 .cascading-right {
                     margin-right: 0;
@@ -58,47 +54,17 @@
                                 <h2 class="fw-bold mb-3">{{ __('Registrarse') }}</h2>
                                 <form>
                                     <!--Nombres del usuario nuevo -->
-                                    {{-- <div class="row">
-                                        <div class="col-md-6 mb-4">
-                                            <label class="form-label" for="form3Example1">{{ __('Nombres') }}</< /label>
-                                            <input type="name" id="form3Example1"
-                                                class="form-control  @error('name') is-invalid @enderror" name="name"
+                                    <div class="row">
+                                        <div class="form-outline mb-3">
+                                            <label class="form-label" for="form3Example4">{{ __('Nombres') }}</label>
+                                            <input type="name" id="form3Example4" class="form-control"
+                                                @error('name') is-invalid @enderror name="name"
                                                 value="{{ old('name') }}" required autocomplete="name" autofocus>
+
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 @enderror
-                                        </div>
-                                    </div> --}}
-
-                                    <!-- Contraseña -->
-                                    <div class="row">
-                                        <div class="col-md-6 mb-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="form3Example1">{{ __('Nombres') }}
-                                                </label>
-                                                <input type="text" id="form3Example1" class="form-control"
-                                                    @error('name') is-invalid @enderror" name="name" required
-                                                    autocomplete="name" />
-                                                @error('name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    @enderror
-                                            </div>
-                                        </div>
-
-                                        <!-- Confirmar contraseña -->
-                                        <div class="col-md-6 mb-4">
-                                            <div class="form-outline">
-                                                <label class="form-label" for="form3Example2">{{ __('Apellidos') }} </label>
-                                                <input type="text" id="form3Example2" class="form-control" min="8"
-                                                    max="35" name="last-name" required autocomplete="last-name" />
-                                                @error('last-name')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                @enderror
-                                            </div>
                                         </div>
                                     </div>
 
@@ -106,7 +72,7 @@
                                     <div class="form-outline mb-3">
                                         <label class="form-label" for="form3Example4">{{ __('Correo') }} </label>
                                         <input type="mail" id="form3Example4" class="form-control"
-                                            @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"
+                                            @error('email') is-invalid @enderror name="email" value="{{ old('email') }}"
                                             required autocomplete="email" required autocomplete="username">
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -115,13 +81,12 @@
                                     </div>
 
                                     <!-- Contraseña -->
-                                    <div class="row">
-                                        <div class="col-md-6 mb-4">
+                                    <div class="row" pa>
+                                        <div class="col-md-4 mb-3">
                                             <div class="form-outline">
-                                                <label class="form-label" for="form3Example1">{{ __('Contraseña') }}
-                                                </label>
+                                                <label class="form-label" for="form3Example1">{{ __('Contraseña') }}</label>
                                                 <input type="password" id="form3Example1" class="form-control"
-                                                    @error('password') is-invalid @enderror" name="password" required
+                                                    @error('password') is-invalid @enderror name="password" required
                                                     autocomplete="new-password" />
                                                 @error('password')
                                                     <span class="invalid-feedback" role="alert">
@@ -131,7 +96,7 @@
                                         </div>
 
                                         <!-- Confirmar contraseña -->
-                                        <div class="col-md-6 mb-4">
+                                        <div class="col-md-4 mb-3">
                                             <div class="form-outline">
                                                 <label class="form-label"
                                                     for="form3Example2">{{ __('Confirmar contraseña') }} </label>
@@ -145,18 +110,17 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <!-- Edad -->
-                                    <div class="row">
-                                        <div class="form-outline" mb-4>
-                                            <label class="form-label" for="form3Example1">{{ __('Edad') }}</label>
-                                            <input type="number" id="form3Example1" class="form-control" min="18"
-                                                max="99" name="age" />
+                                        <!-- Edad -->
+                                        <div class="col-md-4 mb-3">
+                                            <div class="form-outline">
+                                                <label text-align= "center" class="form-label"
+                                                    for="form3Example1">{{ __('Edad') }}</label>
+                                                <input type="number" id="form3Example1" class="form-control" min="18"
+                                                    max="99" name="age" />
+                                            </div>
                                         </div>
                                     </div>
-                                    <br>
-                                    <br>
                                     <!-- Boton de inicio -->
                                     <button type="submit" class="btn btn-primary btn-ligth btn-block mb-4">
                                         {{ __('Registrarse') }}

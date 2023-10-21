@@ -57,24 +57,25 @@
                             @csrf
 
                             <div class="card-body p-6 shadow-5 text-center">
-                                <h2 class="fw-bold mb-3">Iniciar Sesión</h2>
+                                <h2 class="fw-bold mb-4">Iniciar Sesión</h2>
                                 <form>
                                     <!--Correo del usuario -->
                                     <div class="row">
-                                        <div class="form-outline mb-3">
+                                        <div class="form-outline mb-2">
+                                            <label class="form-label" for="form3Example1">{{ __('Correo') }}</label>
                                             <input type="email" id="form3Example1"
                                                 class="form-control  @error('email') is-invalid @enderror" name="email"
                                                 value="{{ old('email') }}" required autocomplete="email" autofocus />
-                                            <label class="form-label" for="form3Example1">{{ __('Correo') }}</< /label>
+
                                         </div>
                                     </div>
 
                                     <!-- Correo del usuario -->
-                                    <div class="form-outline mb-3">
+                                    <div class="form-outline md-3">
+                                        <label class="form-label" for="form3Example4">{{ __('Contraseña') }} </label>
                                         <input type="password" id="form3Example4"
                                             class="form-control @error('password') is-invalid @enderror" name="password"
                                             required autocomplete="current-password">
-                                        <label class="form-label" for="form3Example4">{{ __('Contraseña') }} </< /label>
                                     </div>
 
                                     <!-- Checkbox -->
