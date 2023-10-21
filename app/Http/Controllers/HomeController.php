@@ -34,13 +34,4 @@ class HomeController extends Controller
 
         return view('home', compact('products', 'user'));
     }
-
-    public function show($id)
-    {
-        $product = Product::find($id);
-        $user = User::find($product->id_user);
-        $sector = Sector::find($product->id_sector);
-
-        return view('post/show-post', compact('post', 'user', 'profile', 'category', 'currency', 'measure_unit'));
-    }
 }

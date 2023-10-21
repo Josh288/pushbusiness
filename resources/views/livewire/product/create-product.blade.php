@@ -31,14 +31,6 @@
 
 
         <div class="form-group mt-3 mb-3">
-            <label for="avilable-product">Disponibilidad</label>
-            <select wire:model.live="selectedAvilable" name="avilable-product" id="avilable-product" class="form-select">
-                <option value="">Opciones</option>
-                <option value="Disponible">Disponible</option>
-                <option value="No Disponible">No Disponible</option>
-            </select>
-        </div>
-
             <label for="ammount-product">Cantidad</label>
             <input wire:model.live="amount" type="number" min="1" name="ammount-product" id="ammount-product" class="form-control">
         </div>
