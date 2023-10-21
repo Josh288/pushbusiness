@@ -41,7 +41,6 @@ Route::get('/chat', [ConversationController::class, 'index'])->name('chat');
 
 
 Route::middleware('auth')->group(function () {
-
     Route::get('os', [ProductController::class, 'index'])->name('product.index');
     Route::get('/product/create', [ProductController::class, 'create'])->name('product/create');
     Route::post('/product/store',  [ProductController::class, 'store'])->name('product/store');
@@ -82,6 +81,5 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/home/post', [App\Http\Controllers\HomeController::class, 'show'])->name('show-post');
-
 
 require __DIR__ . '/auth.php';
