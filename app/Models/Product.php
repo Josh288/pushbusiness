@@ -14,6 +14,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $fillable = [
         'name',
         'description',
@@ -22,12 +24,17 @@ class Product extends Model
         'color',
         'avilable',
         'ammount',
-        'imgOriName',
-        'imgName',
+        'photo',
+        'photoname',
         'status',
         'id_user',
         'id_sector',
     ];
+
+    public function url()
+    {
+        return (string) 'http://' . Storage::disk('product')->url($this->photo);
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -75,10 +82,5 @@ class Product extends Model
     public function user()
     {
         return $this->hasOne('App\Models\User', 'id', 'id_user');
-    }
-
-    public function url()
-    {
-        return (string) 'http://' . Storage::disk('post')->url($this->imgName);
     }
 }
