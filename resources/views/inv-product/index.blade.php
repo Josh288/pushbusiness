@@ -132,16 +132,6 @@
 
 
                                 <div class="form-group mt-3 mb-3">
-                                    <label for="avilable-product1">Disponibilidad</label>
-                                    <select name="avilable-product1" id="avilable-product1" class="form-select" required>
-                                        <option value="">==Opciones==</option>
-                                        <option value="Disponible">Disponible</option>
-                                        <option value="No Disponible">No Disponible</option>
-                                    </select>
-                                </div>
-
-
-                                <div class="form-group mt-3 mb-3">
                                     <label for="ammount-product1">Cantidad</label>
                                     <input type="number" name="amount-product1" id="amount-product1" class="form-control" required>
                                 </div>
@@ -267,7 +257,6 @@
                     $('#price-product1').val(response.product.price);
                     $('#tall-product1').val(response.product.size);
                     $('#color-product1').val(response.product.color);
-                    $('#avilable-product1').val(response.product.avilable);
                     $('#amount-product1').val(response.product.ammount);
                     $('#status-product1').val(response.product.status);
                     $('#sector-product1').val(response.product.id_sector);
@@ -294,7 +283,6 @@
                     $('#price-product2').val(response.product.price);
                     $('#tall-product2').val(response.product.size);
                     $('#color-product2').val(response.product.color);
-                    $('#avilable-product2').val(response.product.avilable);
                     $('#amount-product2').val(response.product.ammount);
                     $('#status-product2').val(response.product.status);
                     $('#sector-product2').val(response.sector.name);
