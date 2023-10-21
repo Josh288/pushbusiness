@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany as RelationsBelongsToMany;
 use Ulluminate\Datebase\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Storage;
@@ -13,14 +14,25 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
-
-
+    protected $fillable = [
+        'name',
+        'description',
+        'price',
+        'size',
+        'color',
+        'avilable',
+        'ammount',
+        'imgOriName',
+        'imgName',
+        'status',
+        'id_user',
+        'id_sector',
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function catalogs():BelongsToMany
+    public function catalogs(): RelationsBelongsToMany
     {
         return $this->BelongsToMany(Catalog_model::class, 'id_product', 'id');
     }
@@ -65,5 +77,8 @@ class Product extends Model
         return $this->hasOne('App\Models\User', 'id', 'id_user');
     }
 
-
+    public function url()
+    {
+        return (string) 'http://' . Storage::disk('post')->url($this->imgName);
+    }
 }

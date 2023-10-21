@@ -20,17 +20,18 @@ return new class extends Migration
             $table->string("color")->nullable();
             $table->string("avilable");
             $table->integer("ammount")->nullable();
-            $table->string('photoname');
-            $table->string("photo")->nullable();
+
+            //imagen del producto
+            $table->string('imgOriName');
+            $table->string('imgName');
+
             $table->string("status");
 
             $table->integer("id_user")->unsigned();
-            $table->foreign("id_user")->references("id")->
-            on("users")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreign("id_user")->references("id")->on("users")->onDelete("cascade")->onUpdate("cascade");
 
             $table->integer("id_sector")->unsigned();
-            $table->foreign("id_sector")->references("id")->
-            on("sectors")->OnDelete("cascade")->OnUpdate("cascade");
+            $table->foreign("id_sector")->references("id")->on("sectors")->OnDelete("cascade")->OnUpdate("cascade");
 
             $table->timestamps();
         });

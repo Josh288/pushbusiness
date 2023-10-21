@@ -2,13 +2,11 @@
 
 
     <div class="box-body row">
-
         <div class="form-group mt-3 col-3">
             {{ Form::label('Nombre') }}
             {{ Form::text('name', $product->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => '']) }}
             {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-
 
         <div class="form-group  mt-3 col-3">
             {{ Form::label('Descripción') }}
@@ -16,13 +14,11 @@
             {!! $errors->first('description', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
-
         <div class="form-group mt-3 col-3">
             {{ Form::label('Precio') }}
             {{ Form::text('price', $product->price, ['class' => 'form-control' . ($errors->has('price') ? ' is-invalid' : ''), 'placeholder' => '']) }}
             {!! $errors->first('price', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-
 
         <div class="form-group mt-3 col-3">
             {{ Form::label('Talla') }}
@@ -57,12 +53,9 @@
             {{ Form::file('photo', $product->imgProduct, ['class' => 'form-control' . ($errors->has('photo') ? ' is-invalid' : ''), 'placeholder' => '']) }}
             {!! $errors->first('photo', '<div class="invalid-feedback">:message</div>') !!}
 
-           {{--}} <label for="imgProduct">Imágenes</label>
-            <input type="file" name="imgProduct" class="form-control" id="imgProduct">--}}
+            {{-- }} <label for="imgProduct">Imágenes</label>
+            <input type="file" name="imgProduct" class="form-control" id="imgProduct"> --}}
         </div>
-
-
-
 
         <div class="form-group mt-3">
             {{ Form::label('Estado') }}
