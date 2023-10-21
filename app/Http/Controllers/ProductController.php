@@ -88,10 +88,13 @@ class ProductController extends Controller
             $product->price = $request->input("price-product1");
             $product->size = $request->input("tall-product1");
             $product->color = $request->input("color-product1");
-            $product->avilable = $request->input("avilable-product1");
             $product->ammount = $request->input("amount-product1");
             $product->status = $request->input("status-product1");
             $product->id_sector = $request->input("sector-product1");
+
+            if($product->ammount > 0){
+                $product->avilable = 'Disponible';
+            }
 
             $product->save();
 
@@ -109,9 +112,8 @@ class ProductController extends Controller
             $product->price = $request->input("price-product1");
             $product->size = $request->input("tall-product1");
             $product->color = $request->input("color-product1");
-            $product->avilable = $request->input("avilable-product1");
+            $product->avilable = 'Disponible';
             $product->ammount = $request->input("amount-product1");
-            $product->photo = $request->input("photo-product1");
             $product->status = $request->input("status-product1");
             $product->id_sector = $request->input("sector-product1");
 

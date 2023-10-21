@@ -39,8 +39,6 @@
             </select>
         </div>
 
-
-        <div class="form-group mt-3 mb-3">
             <label for="ammount-product">Cantidad</label>
             <input wire:model.live="amount" type="number" min="1" name="ammount-product" id="ammount-product" class="form-control">
         </div>
