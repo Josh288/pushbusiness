@@ -135,21 +135,10 @@
                             </div>
 
 
-                            <div class="form-group mt-3 mb-3">
-                                <label for="avilable-product1">Disponibilidad</label>
-                                <select name="avilable-product1" id="avilable-product1" class="form-select" required>
-                                    <option value="">==Opciones==</option>
-                                    <option value="Disponible">Disponible</option>
-                                    <option value="No Disponible">No Disponible</option>
-                                </select>
-                            </div>
-
-
-                            <div class="form-group mt-3 mb-3">
-                                <label for="ammount-product1">Cantidad</label>
-                                <input type="number" name="amount-product1" id="amount-product1" class="form-control"
-                                    required>
-                            </div>
+                                <div class="form-group mt-3 mb-3">
+                                    <label for="ammount-product1">Cantidad</label>
+                                    <input type="number" name="amount-product1" id="amount-product1" class="form-control" required>
+                                </div>
 
 
                             <div class="form-group mt-3 mb-3">
@@ -266,23 +255,86 @@
                 var product_id = $(this).val();
                 $('#editproduct').modal('show');
 
-                $.ajax({
-                    type: "GET",
-                    url: "/product/edit/" + product_id,
-                    success: function(response) {
-                        $('#name-product1').val(response.product.name);
-                        $('#des-product1').val(response.product.description);
-                        $('#price-product1').val(response.product.price);
-                        $('#tall-product1').val(response.product.size);
-                        $('#color-product1').val(response.product.color);
-                        $('#avilable-product1').val(response.product.avilable);
-                        $('#amount-product1').val(response.product.ammount);
-                        $('#status-product1').val(response.product.status);
-                        $('#sector-product1').val(response.product.id_sector);
-                        $('#pro-id').val(product_id)
-                        $('#quanty').val(response.product.ammount);
-                    }
-                });
+
+                                        <div class="form-group  mt-3 mb-3">
+                                            <label for="des-product2" class="form-label">Descripcion</label>
+                                            <textarea name="des-product2" id="des-product2" cols="30" rows="5" class="form-control" required readonly></textarea>
+                                        </div>
+
+
+                                        <div class="form-group mt-3 mb-3">
+                                            <label for="price-product2" class="form-label">Precio</label>
+                                            <input type="text" class="form-control" name="price-product2" id="price-product2" required readonly>
+                                        </div>
+
+
+                                        <div class="form-group mt-3 mb-3">
+                                            <label for="tall-product2">Talla</label>
+                                            <input type="text" class="form-control" name="tall-product2" id="tall-product2" required readonly>
+                                        </div>
+
+
+                                        <div class="form-group mt-3 mb-3">
+                                            <label for="color-product2" class="form-label">Color</label>
+                                            <input type="text" class="form-control" name="color-product2" id="color-product2" required readonly>
+                                        </div>
+
+
+                                        <div class="form-group mt-3 mb-3">
+                                            <label for="avilable-product2">Disponibilidad</label>
+                                            <input type="text" name="avilable-product2" id="avilable-product2" class="form-control" required readonly>
+                                        </div>
+
+
+                                        <div class="form-group mt-3 mb-3">
+                                            <label for="ammount-product2">Cantidad</label>
+                                            <input type="text" name="amount-product2" id="amount-product2" class="form-control" required readonly>
+                                        </div>
+
+
+                                        <div class="form-group mt-3 mb-3">
+                                            <label for="status-product2">Estado</label>
+                                            <input type="text" name="status-product2" id="status-product2" class="form-control" required readonly>
+                                        </div>
+
+
+                                        <div class="form-group mt-3 mb-3">
+                                            <label for="sector-product2">Sector</label>
+                                            <input type="text" name="sector-product2" id="sector-product2" class="form-control" required readonly>
+                                        </div>
+
+                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+<script>
+    // Agrega un event listener a todos los elementos con la clase "editbtn"
+    document.querySelectorAll('.btnedit').forEach(function(button) {
+        button.addEventListener('click', function() {
+            // Acción que deseas realizar al hacer clic en el botón
+            var product_id = $(this).val();
+            $('#editproduct').modal('show');
+
+            $.ajax({
+                type: "GET",
+                url: "/product/edit/"+product_id,
+                success:function (response){
+                    $('#name-product1').val(response.product.name);
+                    $('#des-product1').val(response.product.description);
+                    $('#price-product1').val(response.product.price);
+                    $('#tall-product1').val(response.product.size);
+                    $('#color-product1').val(response.product.color);
+                    $('#amount-product1').val(response.product.ammount);
+                    $('#status-product1').val(response.product.status);
+                    $('#sector-product1').val(response.product.id_sector);
+                    $('#pro-id').val(product_id)
+                    $('#quanty').val(response.product.ammount);
+                }
             });
         });
 
@@ -293,21 +345,19 @@
                 var product_id = $(this).val();
                 $('#showproduct').modal('show');
 
-                $.ajax({
-                    type: "GET",
-                    url: "/product/show/" + product_id,
-                    success: function(response) {
-                        $('#name-product2').val(response.product.name);
-                        $('#des-product2').val(response.product.description);
-                        $('#price-product2').val(response.product.price);
-                        $('#tall-product2').val(response.product.size);
-                        $('#color-product2').val(response.product.color);
-                        $('#avilable-product2').val(response.product.avilable);
-                        $('#amount-product2').val(response.product.ammount);
-                        $('#status-product2').val(response.product.status);
-                        $('#sector-product2').val(response.sector.name);
-                    }
-                });
+            $.ajax({
+                type: "GET",
+                url: "/product/show/"+product_id,
+                success:function (response){
+                    $('#name-product2').val(response.product.name);
+                    $('#des-product2').val(response.product.description);
+                    $('#price-product2').val(response.product.price);
+                    $('#tall-product2').val(response.product.size);
+                    $('#color-product2').val(response.product.color);
+                    $('#amount-product2').val(response.product.ammount);
+                    $('#status-product2').val(response.product.status);
+                    $('#sector-product2').val(response.sector.name);
+                }
             });
         });
     </script>

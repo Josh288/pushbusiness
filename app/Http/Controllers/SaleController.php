@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\Sale;
 use Illuminate\Http\Request;
 
 class SaleController extends Controller
@@ -11,7 +13,9 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        $sales = Sale::where('id_user', auth()->user()->id)->get();
+        $products = Product::where('id_user', auth()->user()->id)->get();
+        return view('sales/index', compact('sales', 'products'));
     }
 
     /**
@@ -57,8 +61,11 @@ class SaleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $sale = Sale::find($id)->delete();
+
+        return redirect()->route('sale.index')
+            ->with('success', 'Producto eliminado');
     }
 }

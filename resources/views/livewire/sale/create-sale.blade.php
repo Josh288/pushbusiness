@@ -16,7 +16,7 @@
         <input type="number" wire:model.live="quantity" class= "form-control" id= "quantitysale" required>
         <span class="input-group-text">
             <label for="cantidad" class="form-label" style="margin-top: 2%">Cantidad que posees</label>
-            <input type="text" class="form-control" wire:model="quantityOrigin" id="cantidad" style="width: 50px" readonly>
+            <input type="text" class="form-control" wire:model="quantityOrigin" id="cantidad" style="width: 80px" readonly>
         </span>
     </div>
 
