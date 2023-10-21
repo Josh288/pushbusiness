@@ -66,9 +66,6 @@ Route::get('/entrances/showproduct/{id}', [App\Http\Controllers\EntranceControll
 
 Route::get('/sector/live', SectorLive::class)->name('sector/live');
 
-<<<<<<< HEAD
-Route::get('/chat', [ConversationController::class, 'index'])->name('chat');
-=======
 Route::get('sale', [SaleController::class, 'index'])->name('sale.index');
 Route::get('/sale/create', [SaleController::class, 'create'])->name('sale/create');
 Route::post('/sale/store',  [SaleController::class, 'store'])->name('sale/store');
@@ -76,7 +73,6 @@ Route::delete('/sale/destroy/{id}', [SaleController::class, 'destroy'])->name('s
 Route::get('/sale/show/{id}', [SaleController::class, 'show'])->name('sale.show');
 Route::get('/sale/edit/{id}', [SaleController::class, 'edit'])->name('sale.edit');
 Route::put('sale/update', [SaleController::class, 'update'])->name('sale.update');
->>>>>>> 2c5ddd424b5810f4b7843cf4a6601ca3b3c8fed2
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
