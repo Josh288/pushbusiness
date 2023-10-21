@@ -20,7 +20,7 @@
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{route('product.index')}}" class="dropdown-item">Productos</a>
                     <a href="{{route('entrances.index')}}" class="dropdown-item">Entradas</a>
-                    <a href="element.html" class="dropdown-item">Salidas</a>
+                    <a href="{{route('sale.index')}}" class="dropdown-item">Salidas</a>
                 </div>
             </div>
             <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>

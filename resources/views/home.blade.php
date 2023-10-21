@@ -10,6 +10,7 @@
             <div class="card-body">
               <h5 class="card-title">{{$product->name}}</h5>
               <p class="card-text">{{$product->description}}</p>
+              <h6 class="card-title">{{$product->avilable}}</h6>
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
