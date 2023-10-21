@@ -14,7 +14,7 @@
 
         <div class="form-group mt-3 mb-3">
             <label for="price-product" class="form-label">Precio</label>
-            <input wire:model.live="price" type="number" class="form-control" name="price-product" id="price-product">
+            <input wire:model.live="price" type="number" min="1" class="form-control" name="price-product" id="price-product">
         </div>
 
 
@@ -33,7 +33,7 @@
         <div class="form-group mt-3 mb-3">
             <label for="avilable-product">Disponibilidad</label>
             <select wire:model.live="selectedAvilable" name="avilable-product" id="avilable-product" class="form-select">
-                <option value="">==Opciones==</option>
+                <option value="">Opciones</option>
                 <option value="Disponible">Disponible</option>
                 <option value="No Disponible">No Disponible</option>
             </select>
@@ -42,7 +42,7 @@
 
         <div class="form-group mt-3 mb-3">
             <label for="ammount-product">Cantidad</label>
-            <input wire:model.live="amount" type="number" name="ammount-product" id="ammount-product" class="form-control">
+            <input wire:model.live="amount" type="number" min="1" name="ammount-product" id="ammount-product" class="form-control">
         </div>
 
 
@@ -55,10 +55,10 @@
         <div class="form-group mt-3 mb-3">
             <label for="status-product">Estado</label>
             <select wire:model.live="selectedStatus" name="status-product" id="status-product" class="form-select">
-                <option value="">==Opciones==</option>
+                <option value="">Opciones</option>
                 <option value="Usado">Usado</option>
                 <option value="Nuevo">Nuevo</option>
-                <option value="SemiNuevo">SemiNuevo</option>
+                <option value="SemiNuevo">Semi nuevo</option>
             </select>
         </div>
 
@@ -66,7 +66,7 @@
         <div class="form-group mt-3 mb-3">
             <label for="sector-product">Sector</label>
             <select wire:model.live="selectedSector" name="sector-product" id="sector-product" class="form-select">
-                <option value="">==Opciones==</option>
+                <option value="">Opciones</option>
                 @foreach ($sectors as $sector)
                     <option value="{{$sector->id}}">{{$sector->name}}</option>
                 @endforeach

@@ -24,7 +24,7 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $sectors = Sector::all();
-        return view('product/index', compact('products', 'sectors'));
+        return view('inv-product/index', compact('products', 'sectors'));
     }
 
     /**
@@ -38,39 +38,6 @@ class ProductController extends Controller
         return view('product/create', compact('product'));
     }
 
-    public function store(Request $request)
-    {
-        $product = new Product();
-        $product->name = $request->input("name-product");
-        $product->description = $request->input("des-product");
-        $product->price = $request->input("price-product");
-        $product->size = $request->input("tall-product");
-        $product->color = $request->input("color-product");
-        $product->avilable = $request->input("avilable-product");
-        $product->ammount = $request->input("ammount-product");
-        $product->status = $request->input("status-product");
-        $product->id_sector = $request->input("sector-product");
-
-        // Guardar la imagen
-        if ($request->hasFile('formFile')) {
-            $name = Auth::user()->id . date("Y-m-d") . '-' . date("h-i-sa") . '.' . $request->file('formFile')->extension();
-            $product->photoname = $request->file('formFile')->getClientOriginalName();
-            $product->photo = $name;
-            $request->file('formFile')->storeAs('product', $name);
-        }
-
-        $product->save();
-
-        $entrance = new Entrance();
-        $entrance->input = $product->name;
-        $entrance->description = 'Entrada de Product';
-        $entrance->date_create = Carbon::parse($product['created_at'])->format('Y-m-d');
-        $entrance->identifer = $product->id;
-        $entrance->id_user = Auth::user()->id;
-
-        $entrance->save();
-        return redirect()->back()->with('success', 'Se ha registrado con exito, se agrego nueva ENTRADA');
-    }
 
     /**
      * Display the specified resource.

@@ -22,8 +22,8 @@ return new class extends Migration
             $table->integer("ammount")->nullable();
 
             //imagen del producto
-            $table->string('imgOriName');
-            $table->string('imgName');
+            $table->string('photo');
+            $table->string('photoname');
 
             $table->string("status");
 

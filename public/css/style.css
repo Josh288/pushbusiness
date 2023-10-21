@@ -17,6 +17,8 @@
     display: flex;
     margin: 1%;
     flex-wrap: wrap;
+    min-height: 100px;
+    max-height: 400px;
 }
 
 

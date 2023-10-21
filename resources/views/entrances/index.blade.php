@@ -18,7 +18,7 @@
                                         <th>Nombre de la Entrada</th>
                                         <th>Description</th>
                                         <th>Fecha de creacion</th>
-                                        <th> == Acciones ==</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
