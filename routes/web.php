@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConversationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -62,7 +63,7 @@ Route::get('/entrances/showproduct/{id}', [App\Http\Controllers\EntranceControll
 
 Route::get('/sector/live', SectorLive::class)->name('sector/live');
 
-
+Route::get('/chat', [ConversationController::class, 'index'])->name('chat');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

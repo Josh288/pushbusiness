@@ -31,7 +31,7 @@
             </div>
             <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Catalogo</a>
             <a href="#" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Ventas</a>
-            <a href="#" class="nav-item nav-link"><i class="fab fa-rocketchat"></i> Chats</a>
+            <a href="{{route('chat')}}" class="nav-item nav-link"><i class="fab fa-rocketchat"></i> Chats</a>
             <a href="#" class="nav-item nav-link"><i class="fas fa-warehouse"></i> Categorias</a>
             {{-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
