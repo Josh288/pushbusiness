@@ -19,7 +19,7 @@
         </div>
         <div class="navbar-nav w-100">
             <a href="{{ route('home') }}" class="nav-item nav-link active"><i
-                    class="fa fa-tachometer-alt me-2"></i>Mis Publicaciones</a>
+                    class="fa fa-tachometer-alt me-2"></i>Publicaciones</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="fa fa-laptop me-2"></i>Inventario</a>
@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-            <a href="{{route('catalogue')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Publicaciones</a>
+            <a href="{{route('catalogue')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Mis Publicaciones</a>
             <a href="{{route('chat')}}" class="nav-item nav-link"><i class="fab fa-rocketchat"></i> Chats</a>
 
             {{-- <div class="nav-item dropdown">
