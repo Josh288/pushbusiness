@@ -37,6 +37,7 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/catalogue', [App\Http\Controllers\CatalogController::class, 'index'])->name('catalogue');
+Route::get('/chat', [ConversationController::class, 'index'])->name('chat');
 
 
 Route::middleware('auth')->group(function () {

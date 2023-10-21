@@ -19,7 +19,7 @@
         </div>
         <div class="navbar-nav w-100">
             <a href="{{ route('home') }}" class="nav-item nav-link active"><i
-                    class="fa fa-tachometer-alt me-2"></i>Panel</a>
+                    class="fa fa-tachometer-alt me-2"></i>Mis Publicaciones</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="fa fa-laptop me-2"></i>Inventario</a>
@@ -29,10 +29,10 @@
                     <a href="{{route('sale.index')}}" class="dropdown-item">Salidas</a>
                 </div>
             </div>
-            <a href="{{route('catalogue')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Catalogo</a>
-            <a href="#" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Ventas</a>
-            {{-- <a href="{{route('chat')}}" class="nav-item nav-link"><i class="fab fa-rocketchat"></i> Chats</a> --}}
-            <a href="#" class="nav-item nav-link"><i class="fas fa-warehouse"></i> Categorias</a>
+
+            <a href="{{route('catalogue')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Publicaciones</a>
+            <a href="{{route('chat')}}" class="nav-item nav-link"><i class="fab fa-rocketchat"></i> Chats</a>
+
             {{-- <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="far fa-file-alt me-2"></i>Pages</a>
