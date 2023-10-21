@@ -29,7 +29,7 @@
                     <a href="{{route('sale.index')}}" class="dropdown-item">Salidas</a>
                 </div>
             </div>
-            <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Catalogo</a>
+            <a href="{{route('catalogue')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Catalogo</a>
             <a href="#" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Ventas</a>
             <a href="#" class="nav-item nav-link"><i class="fab fa-rocketchat"></i> Chats</a>
             <a href="#" class="nav-item nav-link"><i class="fas fa-warehouse"></i> Categorias</a>
