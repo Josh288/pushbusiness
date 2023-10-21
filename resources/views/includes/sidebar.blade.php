@@ -24,7 +24,8 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                         class="fa fa-laptop me-2"></i>Inventario</a>
                 <div class="dropdown-menu bg-transparent border-0">
-                    <a href="{{ route('product.index') }}" class="dropdown-item">Productos</a>
+                    <a href="{{ route('product.index') }}" class="dropdown-item">
+                        Productos</a>
                     <a href="{{ route('entrances.index') }}" class="dropdown-item">Entradas</a>
                     <a href="#" class="dropdown-item">Salidas</a>
                 </div>

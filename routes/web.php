@@ -62,8 +62,6 @@ Route::get('/entrances/showproduct/{id}', [App\Http\Controllers\EntranceControll
 
 Route::get('/sector/live', SectorLive::class)->name('sector/live');
 
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -71,7 +69,6 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/home/post', [App\Http\Controllers\HomeController::class, 'show'])->name('show-post');
-
 
 
 require __DIR__ . '/auth.php';
