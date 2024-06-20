@@ -65,6 +65,7 @@ Route::get('/entrances/data/{id}', [App\Http\Controllers\EntranceController::cla
 Route::get('/entrances/showproduct/{id}', [App\Http\Controllers\EntranceController::class, 'showproduct']);
 
 Route::get('/sector/live', SectorLive::class)->name('sector/live');
+Route::get('/chat', [ConversationController::class, 'index'])->name('chat');
 
 Route::get('sale', [SaleController::class, 'index'])->name('sale.index');
 Route::get('/sale/create', [SaleController::class, 'create'])->name('sale/create');
